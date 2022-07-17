@@ -25,6 +25,7 @@
 #  UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #
 #######################################################################M
+# adted from Lululla 20220716 for E2 Py3
 
 from Plugins.Plugin import PluginDescriptor
 from . import Tetris
