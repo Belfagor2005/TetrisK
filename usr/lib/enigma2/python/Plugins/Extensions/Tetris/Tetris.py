@@ -41,16 +41,7 @@ class TetrisBoard(object):
     cellwidth = 43
 
     pieceColors = {
-        # " ": argb(0, 0xff, 0xff, 0xff),
-        # "I": argb(0, 0xf5, 0xa9, 0xd0),
-        # "J": argb(0, 0xf7, 0x81, 0x81),
-        # "L": argb(0, 0xf3, 0xe2, 0xa9),
-        # "O": argb(0, 0xe2, 0xa9, 0xf2),
-        # "S": argb(0, 0xa9, 0xf5, 0xa2),
-        # "T": argb(0, 0xbc, 0xf5, 0xa9),
-        # "Z": argb(0, 0xa9, 0xa9, 0xf5),    
-    
-        " ": argb(0, 0xff, 0xff, 0xff),
+        " ": argb(0, 0x00, 0x00, 0x00),
         "I": argb(0, 0xFF, 0xFF, 0x00), #yellow
         "J": argb(0, 0x00, 0x00, 0xFF), #blue
         "L": argb(0, 0xFF, 0x80, 0x00), #orange
@@ -64,8 +55,7 @@ class TetrisBoard(object):
 
     def __init__(self, canvas):
         self.canvas = canvas
-        self.canvas.fill(0,0,430,860, argb(0,0,0,0))
-        # self.canvas.fill(0,0,430,860, argb(33,255,255,255))        
+        self.canvas.fill(0,0,430,860, argb(0, 0, 0, 0))
         self.setupBoard()
         self.drawBoard(self.board)
         self.moveTimer = eTimer()
@@ -93,7 +83,7 @@ class TetrisBoard(object):
         self.canvas.flush()
 
     def drawPiece(self, x, y, piece):
-        frameColor = argb(0x00, 0xd9, 0xd9, 0xc5)
+        frameColor = argb(0x00, 0xd9, 0xd9, 0xc5)        
         color      = self.pieceColors[piece]
 
         x = x * self.cellwidth
@@ -195,8 +185,7 @@ class PreviewBoard(TetrisBoard):
 
     def __init__(self, canvas):
         self.canvas = canvas
-        self.canvas.fill(0,0,196,196, argb(0,0,0,0))
-        # self.canvas.fill(0,0,196,196, argb(33,255,255,255))        
+        self.canvas.fill(0,0,196,196, argb(33,255,255,255))        
 
     def drawBoard(self, piece):
         pos = 0
@@ -209,10 +198,6 @@ class PreviewBoard(TetrisBoard):
 
 class Board(Screen):
 
-    # x = 0
-    # y = 0
-
-    # set skin...
     skin = """
     <screen name="Tetris_v1" position="center,100" size="1800,940" title="Tetris" backgroundColor="#101010">
 		<ePixmap position="0,0" size="1800,940" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetris.jpg" />
@@ -224,38 +209,13 @@ class Board(Screen):
 		<widget name="key_green" position="160,50" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="green" backgroundColor="black" zPosition="1" transparent="1" />
 		<ePixmap position="60,100" pixmap="buttons/key_red.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
 		<widget name="key_red" position="160,100" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="red" backgroundColor="black" zPosition="1" transparent="1" />
-        <!--
-        <ePixmap position="60,150" pixmap="buttons/key_blue.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
-		<widget name="key_blue" position="160,150" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="blue" backgroundColor="black" zPosition="1" transparent="1" />
-        -->
 		<eLabel position="60,210" size="310,3" backgroundColor="#404040" zPosition="1" />
 		<widget name="points" position="60,230" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
 		<widget name="lines"  position="60,280" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
 		<widget name="level"  position="60,330" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
 	</screen>
     """
-    
-    # skin = """
-    # <screen name="Tetris" position="%d,%d" size="1920,1080" title="Tetris" backgroundColor="#101010" flags="wfNoBorder">
-        # <ePixmap position="0,0" size="1920,1080" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetris.jpg" />
-        # <widget source="canvas" render="Canvas" position="745,201" size="430,860" backgroundColor="#60ffffff" transparent="1" alphatest="blend" zPosition="2" />
-        # <widget source="preview" render="Canvas" position="1245,402" size="196,196" zPosition="3" />
-        # <widget name="previewtext" position="1243,312" size="500,79" valign="center" halign="left" font="Regular;40" foregroundColor="#33cc33" backgroundColor="#000000" transparent="1" zPosition="1" />
 
-        # <widget name="state" position="241,255" size="500,80" valign="center" halign="center" font="Regular;50" foregroundColor="red" backgroundColor="#000000" transparent="1" zPosition="1" />       
-        # <widget name="points" position="275,344" size="434,81" valign="center" halign="center" font="Regular;40" foregroundColor="#0099ff" backgroundColor="#000000" transparent="1" zPosition="1" />        
-        # <widget name="lines" position="275,428" size="434,80" valign="center" halign="center" font="Regular;40" foregroundColor="#0099ff" backgroundColor="#000000" transparent="1" zPosition="1" />        
-        # <widget name="level" position="275,509" size="434,81" valign="center" halign="center" font="Regular;40" foregroundColor="#0099ff" backgroundColor="#000000" transparent="1" zPosition="1" />        
-
-        # <ePixmap position="50,55" pixmap="buttons/key_green.png" size="80,40" alphatest="blend" zPosition="2" />
-        # <widget name="key_green" font="Regular;30" position="130,55" size="450,40" halign="left" valign="center" foregroundColor="green" backgroundColor="black" zPosition="1" transparent="1" />
-        # <ePixmap position="50,110" pixmap="buttons/key_red.png" size="80,40" alphatest="blend" zPosition="2" />
-        # <widget name="key_red" font="Regular;30" position="130,110" size="450,40" halign="left" valign="center" foregroundColor="red" backgroundColor="black" zPosition="1" transparent="1" />
-        # <ePixmap position="50,170" pixmap="buttons/key_blue.png" size="80,40" alphatest="blend" zPosition="2" />
-        # <widget name="key_blue" font="Regular;30" position="132,170" size="450,40" halign="left" valign="center" foregroundColor="blue" backgroundColor="black" zPosition="1" transparent="1" />
-        # <eLabel position="50,225" size="535,3" backgroundColor="#202020" zPosition="1" />
-    # </screen>
-    # """ %(x, y)
     def __init__(self, session):
         self.session = session
         Screen.__init__(self, session)
@@ -280,8 +240,6 @@ class Board(Screen):
         self["previewtext"] = Label("Next Block:")
         self["key_red"] = Label("Exit")
         self["key_green"] = Label("Tetris Start")
-        # self["key_yellow"] = Label()
-        # self["key_blue"] = Label()
         self["state"] = Label()
         self["lines"] = Label()
         self["level"] = Label()

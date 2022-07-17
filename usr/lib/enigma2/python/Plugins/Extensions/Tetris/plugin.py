@@ -30,19 +30,26 @@
 from Plugins.Plugin import PluginDescriptor
 from . import Tetris
 
-def main(session, **kwargs):
-    from six.moves import reload_module
-    reload_module(Tetris)
-    # reload(Tetris)
-    session.open(Tetris.Board)
+def getDesktopSize():
+    from enigma import getDesktop
+    s = getDesktop(0).size()
+    return (s.width(), s.height())
 
-# def Plugins(**kwargs):
-	# return PluginDescriptor(
-		# name="Tetris", 
-		# description=_("Tetris."), 
-		# where = PluginDescriptor.WHERE_PLUGINMENU, 
-		# fnc=main)
-       
+def isFHD():
+    desktopSize = getDesktopSize()
+    return desktopSize[0] == 1920
+
+def main(session, **kwargs):
+    if isFHD():
+        from six.moves import reload_module
+        reload_module(Tetris)
+        # reload(Tetris) #py2
+        session.open(Tetris.Board)    
+    else:
+        from Screens.MessageBox import MessageBox
+        from Tools.Notifications import AddPopup
+        AddPopup(_("Sorry but Tetris only works with FHD skins :("),MessageBox.TYPE_INFO, 10, 'Sorry')
+      
 def Plugins(**kwargs):
     return [PluginDescriptor(name="Tetris", description=_("Tetris Game"), where = [PluginDescriptor.WHERE_PLUGINMENU],
             icon="Tetris.png", fnc=main)]

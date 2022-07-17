@@ -1,9 +1,10 @@
 Package: enigma2-plugin-extensions-tetris
 Version: 1.0r0
-Description: Tetris-Clone
-Section: games
+Section: extra
 Priority: optional
-Maintainer: robert.damas@byom.de
-License: MIT
 Architecture: all
-
+Maintainer: <robert.damas@byom.de>
+Description: Tetris-FHD
+Source: *
+Homepage: *
+License: MIT
