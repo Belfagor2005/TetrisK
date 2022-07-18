@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #Congratulations to the author
 #I only adapted the plugin to Enigma2 Python3
-#lululla coder
+#lululla coder - mmark skinner
 from enigma import gFont, RT_HALIGN_CENTER, RT_VALIGN_CENTER
 from Components.ActionMap import ActionMap
 from Components.Label import Label
@@ -11,11 +11,20 @@ from Screens.Screen import Screen
 from enigma import eTimer
 import random
 import os
-VERSION = "1.0r0"
-
+VERSION = "7.1r0"
+from enigma import getDesktop
 def argb(a,r,g,b):
     return (a<<24)|(r<<16)|(g<<8)|b
 
+def getDesktopSize():
+    from enigma import getDesktop
+    s = getDesktop(0).size()
+    return (s.width(), s.height())
+
+def isFHD():
+    desktopSize = getDesktopSize()
+    return desktopSize[0] == 1920
+    
 class Tile(object):
 
     shapes = {
@@ -38,7 +47,11 @@ class Tile(object):
 
 class TetrisBoard(object):
 
-    cellwidth = 43
+    # cellwidth = 43
+    if isFHD():
+        cellwidth = 43
+    else:
+        cellwidth = 27    
 
     pieceColors = {
         " ": argb(0, 0x00, 0x00, 0x00),
@@ -197,46 +210,68 @@ class PreviewBoard(TetrisBoard):
         self.canvas.flush()
 
 class Board(Screen):
-
-    skin = """
-    <screen name="Tetris_v1" position="center,100" size="1800,940" title="Tetris" backgroundColor="#101010">
-		<ePixmap position="0,0" size="1800,940" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetris.jpg" />
-		<widget source="canvas"  render="Canvas" position="center ,40" size="430,860" backgroundColor="#60ffffff" transparent="1" alphatest="blend" zPosition="2" />
-		<widget source="preview" render="Canvas" position="1230,100" size="176,174" zPosition="3" />
-		<widget name="previewtext" position="1220,30" size="210,40" valign="center" halign="center" font="Regular;34" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
-		<widget name="state"       position="241,255" size="500,80" valign="center" halign="center" font="Regular;50" foregroundColor="red" backgroundColor="#000000" transparent="1" zPosition="1" />       
-		<ePixmap position="60,50" pixmap="buttons/key_green.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
-		<widget name="key_green" position="160,50" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="green" backgroundColor="black" zPosition="1" transparent="1" />
-		<ePixmap position="60,100" pixmap="buttons/key_red.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
-		<widget name="key_red" position="160,100" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="red" backgroundColor="black" zPosition="1" transparent="1" />
-		<eLabel position="60,210" size="310,3" backgroundColor="#404040" zPosition="1" />
-		<widget name="points" position="60,230" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
-		<widget name="lines"  position="60,280" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
-		<widget name="level"  position="60,330" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
-	</screen>
-    """
+    if isFHD():      
+        print('is fhd----------------------------')
+        skin = """
+                <screen name="Tetrisfhd" position="center,100" size="1800,940" title="Tetris" backgroundColor="#101010">
+                    <ePixmap position="0,0" size="1800,940" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetris.jpg" />
+                    <widget source="canvas"  render="Canvas" position="center ,40" size="430,860" backgroundColor="#60ffffff" transparent="1" alphatest="blend" zPosition="2" />
+                    <widget source="preview" render="Canvas" position="1230,100" size="176,174" zPosition="3" />
+                    <widget name="previewtext" position="1220,30" size="210,40" valign="center" halign="center" font="Regular;34" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />
+                    <widget name="state"       position="241,255" size="500,80" valign="center" halign="center" font="Regular;50" foregroundColor="red" backgroundColor="#000000" transparent="1" zPosition="3" />       
+                    <ePixmap position="60,50" pixmap="buttons/key_green.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
+                    <widget name="key_green" position="160,50" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="green" backgroundColor="black" zPosition="1" transparent="1" />
+                    <ePixmap position="60,100" pixmap="buttons/key_red.png" size="80,40" alphatest="blend" scale="1" zPosition="2" />
+                    <widget name="key_red" position="160,100" size="200,40" font="Regular;30" halign="left" valign="center" foregroundColor="red" backgroundColor="black" zPosition="1" transparent="1" />
+                    <eLabel position="60,210" size="310,3" backgroundColor="#404040" zPosition="1" />
+                    <widget name="points" position="60,230" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
+                    <widget name="lines"  position="60,280" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
+                    <widget name="level"  position="60,330" size="200,40" valign="center" halign="left" font="Regular;30" foregroundColor="yellow" backgroundColor="#000000" transparent="1" zPosition="1" />        
+                </screen>
+                """
+    else:
+        print('is hd----------------------------')
+        skin = """
+            <screen name="Tetrishd" position="0,0" size="1280,720" title="Tetris" flags="wfNoBorder">
+                <ePixmap position="0,0" size="1280,720" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetrishd.jpg" />
+                <widget source="canvas" render="Canvas" position="508,75" size="272,541" zPosition="1" />
+                <widget source="preview" render="Canvas" position="883,77" size="110,110" zPosition="2" />
+                <widget name="state" position="34,50" size="237,54" font="Regular; 34" foregroundColor="#00cc0000" zPosition="2 />
+                <widget name="previewtext" position="866,26" size="145,30" font="Regular; 20" zPosition="2" />
+                <widget name="points" position="33,163" size="236,40" font="Regular; 24" zPosition="2" />
+                <widget name="lines" position="33,205" size="236,40" font="Regular; 22" zPosition="2" />
+                <widget name="level" position="33,248" size="236,40" font="Regular; 24" zPosition="2" />
+                <widget name="key_red" position="150,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#9f1313" />
+                <widget name="key_green" position="377,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#1f771f" />
+                <widget name="key_yellow" position="604,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#a08500" />
+                <widget name="key_blue" position="830,670" size="187,37" zPosition="1" font="Regular; 16" halign="center" valign="center" foregroundColor="#00ffffff" backgroundColor="#18188b" />
+            </screen>
+            """
 
     def __init__(self, session):
         self.session = session
         Screen.__init__(self, session)
-        self.skinName = "Tetris_v1"
+        # self.skinName = "Tetris_v1"
+        if isFHD():
+            self.skinName = "Tetrisfhd"
+        else:
+            self.skinName = "Tetrishd"
         self.setTitle("Tetris %s" % VERSION)
         self["actions"] =  ActionMap(["TetrisActions"], {
-                "cancel":	self.cancel,
-                "up":		self.up,
-                "down":		self.down,
-                "left":		self.left,
-                "right":	self.right,
-                "ok":		self.ok,
-                "red":		self.red,
-                "green":	self.green,
-                "yellow":	self.yellow,
-                "blue":		self.blue,
+                "cancel":   self.cancel,
+                "up":       self.up,
+                "down":     self.down,
+                "left":     self.left,
+                "right":    self.right,
+                "ok":       self.ok,
+                "red":      self.red,
+                "green":    self.green,
+                "yellow":   self.yellow,
+                "blue":     self.blue,
         }, -1)
 
         self["canvas"] = CanvasSource()
         self["preview"] = CanvasSource()
-
         self["previewtext"] = Label("Next Block:")
         self["key_red"] = Label("Exit")
         self["key_green"] = Label("Tetris Start")
