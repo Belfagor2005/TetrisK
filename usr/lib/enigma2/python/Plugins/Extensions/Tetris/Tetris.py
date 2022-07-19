@@ -2,22 +2,20 @@
 #Congratulations to the author
 #I only adapted the plugin to Enigma2 Python3
 #lululla coder - mmark skinner
-from enigma import gFont, RT_HALIGN_CENTER, RT_VALIGN_CENTER
+from enigma import gFont, eTimer,getDesktop, RT_HALIGN_CENTER, RT_VALIGN_CENTER
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.Sources.CanvasSource import CanvasSource
 from Components.Sources.StaticText import StaticText
 from Screens.Screen import Screen
-from enigma import eTimer
-import random
-import os
+from random import shuffle
+from os import system
 VERSION = "7.1r0"
-from enigma import getDesktop
+
 def argb(a,r,g,b):
     return (a<<24)|(r<<16)|(g<<8)|b
 
 def getDesktopSize():
-    from enigma import getDesktop
     s = getDesktop(0).size()
     return (s.width(), s.height())
 
@@ -131,7 +129,7 @@ class TetrisBoard(object):
         
     #lululla add    
     def dropCache(self):
-        os.system("echo 3 > /proc/sys/vm/drop_caches")
+        system("echo 3 > /proc/sys/vm/drop_caches")
         print("[CacheFlush]")
         return
 
@@ -291,7 +289,7 @@ class Board(Screen):
         self["points"].setText("Points: 0")            
         # end edit
         self.tetrominos = [ "I", "J", "L", "O", "S", "T", "Z" ]
-        random.shuffle(self.tetrominos)
+        shuffle(self.tetrominos)
         self.nexttile = self.tetrominos[0]
         self.updatePreview(" ")
 
@@ -308,7 +306,7 @@ class Board(Screen):
         else:
                 tile = self.nexttile
                 piece = Tile(tile)
-                random.shuffle(self.tetrominos)
+                shuffle(self.tetrominos)
                 self.nexttile = self.tetrominos[0]
                 self.updatePreview(self.nexttile)
                 self.board.spawn(piece, self.eventLoop)
