@@ -234,7 +234,7 @@ class Board(Screen):
                 <ePixmap position="0,0" size="1280,720" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Tetris/pic/tetrishd.jpg" />
                 <widget source="canvas" render="Canvas" position="508,75" size="272,541" zPosition="1" />
                 <widget source="preview" render="Canvas" position="883,77" size="110,110" zPosition="2" />
-                <widget name="state" position="34,50" size="237,54" font="Regular; 34" foregroundColor="#00cc0000" zPosition="2 />
+                <widget name="state" position="34,50" size="237,54" font="Regular; 34" foregroundColor="#00cc0000" zPosition="2" />
                 <widget name="previewtext" position="866,26" size="145,30" font="Regular; 20" zPosition="2" />
                 <widget name="points" position="33,163" size="236,40" font="Regular; 24" zPosition="2" />
                 <widget name="lines" position="33,205" size="236,40" font="Regular; 22" zPosition="2" />
