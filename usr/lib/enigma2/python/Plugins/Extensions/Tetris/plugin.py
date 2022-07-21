@@ -31,19 +31,19 @@ from Plugins.Plugin import PluginDescriptor
 from . import Tetris
 
 
-    
-def main(session, **kwargs):
-    # if isHD:
-        # from Screens.MessageBox import MessageBox
-        # from Tools.Notifications import AddPopup
-        # AddPopup(_("Sorry but Tetris only works with FHD skins :("),MessageBox.TYPE_INFO, 10, 'Sorry')
-    # else:
-        # from six.moves import reload_module
-        # reload_module(Tetris)
-        # # reload(Tetris) #py2
-        session.open(Tetris.Board)
 
-      
+def main(session, **kwargs):
+	# if isHD:
+		# from Screens.MessageBox import MessageBox
+		# from Tools.Notifications import AddPopup
+		# AddPopup(_("Sorry but Tetris only works with FHD skins :("),MessageBox.TYPE_INFO, 10, 'Sorry')
+	# else:
+		# from six.moves import reload_module
+		# reload_module(Tetris)
+		# # reload(Tetris) #py2
+		session.open(Tetris.Board)
+
+
 def Plugins(**kwargs):
-    return [PluginDescriptor(name="Tetris", description=_("Tetris Game"), where = [PluginDescriptor.WHERE_PLUGINMENU],
-            icon="Tetris.png", fnc=main)]
+	return [PluginDescriptor(name="Tetris", description=_("Tetris Game"), where = [PluginDescriptor.WHERE_PLUGINMENU],
+			icon="Tetris.png", fnc=main)]
