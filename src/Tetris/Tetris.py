@@ -2,11 +2,10 @@
 # Congratulations to the author
 # I only adapted the plugin to Enigma2 Python3
 # lululla coder - mmark skinner
-from enigma import gFont, eTimer, getDesktop, RT_HALIGN_CENTER, RT_VALIGN_CENTER
+from enigma import eTimer, getDesktop
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.Sources.CanvasSource import CanvasSource
-from Components.Sources.StaticText import StaticText
 from Screens.Screen import Screen
 from random import shuffle
 from os import system
