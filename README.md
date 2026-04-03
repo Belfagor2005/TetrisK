@@ -1,35 +1,35 @@
 
 
-# <p align="center">tetris Plugin for Enigma2 (E²) ![GitHub repo size](https://img.shields.io/github/repo-size/oe-alliance-plugins/tetris.svg)</p>
+# <p align="center">Tetris Plugin for Enigma2 (E²) ![GitHub repo size](https://img.shields.io/github/repo-size/oe-alliance-plugins/Tetris.svg)</p>
 
 **Tetris-Clone HD/FHD modded by Lululla**
 
 
 ## Github status
-[![Build](https://github.com/oe-alliance-plugins/tetris/actions/workflows/buildbot.yml/badge.svg)](https://github.com/oe-alliance-plugins/tetris/actions/workflows/buildbot.yml)
-[![Lint Status](https://github.com/oe-alliance-plugins/tetris/actions/workflows/pylint.yml/badge.svg)](https://github.com/oe-alliance-plugins/tetris/actions/workflows/pylint.yml)
-[![Ruff Status](https://github.com/oe-alliance-plugins/tetris/actions/workflows/ruff.yml/badge.svg)](https://github.com/oe-alliance-plugins/tetris/actions/workflows/ruff.yml)
-[![Build Status](https://github.com/oe-alliance-plugins/tetris/actions/workflows/compile.yml/badge.svg)](https://github.com/oe-alliance-plugins/tetris/actions/workflows/compile.yml)
-[![AUTOTAG](https://github.com/oe-alliance-plugins/tetris/actions/workflows/autotag.yml/badge.svg)](https://github.com/oe-alliance-plugins/tetris/actions/workflows/autotag.yml)
+[![Build](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/buildbot.yml/badge.svg)](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/buildbot.yml)
+[![Lint Status](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/pylint.yml/badge.svg)](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/pylint.yml)
+[![Ruff Status](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/ruff.yml/badge.svg)](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/ruff.yml)
+[![Build Status](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/compile.yml/badge.svg)](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/compile.yml)
+[![AUTOTAG](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/autotag.yml/badge.svg)](https://github.com/oe-alliance-plugins/Tetris/actions/workflows/autotag.yml)
 
 
-[![Plugin Version](https://img.shields.io/github/v/tag/oe-alliance-plugins/tetris?label=Latest%20Version&color=darkviolet)](https://github.com/oe-alliance-plugins/tetris/tags)
-[![Latest Release](https://img.shields.io/github/release-date/oe-alliance-plugins/tetris?label=From&color=darkviolet)](https://github.com/oe-alliance-plugins/tetris/releases/latest)
-[![Github last commit](https://img.shields.io/github/last-commit/oe-alliance-plugins/tetris)](https://github.com/oe-alliance-plugins/tetris)
-[![GitHub Activity](https://img.shields.io/github/commit-activity/y/oe-alliance-plugins/tetris.svg?label=commits)](https://github.com/oe-alliance-plugins/tetris/commits)
-[![GitHub Activity](https://img.shields.io/github/commit-activity/m/oe-alliance-plugins/tetris.svg?label=commits)](https://github.com/oe-alliance-plugins/tetris/commits)
+[![Plugin Version](https://img.shields.io/github/v/tag/oe-alliance-plugins/Tetris?label=Latest%20Version&color=darkviolet)](https://github.com/oe-alliance-plugins/Tetris/tags)
+[![Latest Release](https://img.shields.io/github/release-date/oe-alliance-plugins/Tetris?label=From&color=darkviolet)](https://github.com/oe-alliance-plugins/Tetris/releases/latest)
+[![Github last commit](https://img.shields.io/github/last-commit/oe-alliance-plugins/Tetris)](https://github.com/oe-alliance-plugins/Tetris)
+[![GitHub Activity](https://img.shields.io/github/commit-activity/y/oe-alliance-plugins/Tetris.svg?label=commits)](https://github.com/oe-alliance-plugins/Tetris/commits)
+[![GitHub Activity](https://img.shields.io/github/commit-activity/m/oe-alliance-plugins/Tetris.svg?label=commits)](https://github.com/oe-alliance-plugins/Tetris/commits)
 
 ## SonarCloud status
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=bugs)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_tetris&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=bugs)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=oe-alliance-plugins_Tetris&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
 
-[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_tetris)
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=oe-alliance-plugins_Tetris)
 
 ---
 
@@ -45,7 +45,7 @@ This plugin is released under GPLv3. See [LICENSE](https://www.gnu.org/licenses/
 
 ### 🤝 Contributing & Contact
 
-tetris is created by users for users and we welcome every contribution. There are no highly paid developers. There are only users who have seen a problem and done their best to fix it. This means tetris will always need the contributions of users like you. How can you get involved?
+Tetris is created by users for users and we welcome every contribution. There are no highly paid developers. There are only users who have seen a problem and done their best to fix it. This means Tetris will always need the contributions of users like you. How can you get involved?
 
 For questions or feedback, feel free and please open an issue or contribute with a Pull Request!
 
