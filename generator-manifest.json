@@ -1,0 +1,18 @@
+{
+  "branch": "main",
+  "depends_recipe": "",
+  "description_control": "Tetris-Clone HD/FHD modded by Lululla",
+  "description_recipe": "Tetris-Clone HD/FHD modded by Lululla",
+  "history_source_dir": "tetris",
+  "internal_package_name": "enigma2-plugin-extensions-tetris",
+  "module_dir_name": "Tetris",
+  "output_subdir": "tetris",
+  "package_name": "enigma2-plugin-extensions-tetris",
+  "plugin_src_rel": "tetris",
+  "python_package": "Tetris",
+  "rdepends_recipe": "",
+  "replaces": "",
+  "repo_name": "tetris",
+  "rrecommends": "",
+  "rreplaces": ""
+}
