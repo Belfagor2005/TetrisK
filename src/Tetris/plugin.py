@@ -24,18 +24,18 @@
 #  BASIS, AND THE AUTHOR HAS NO OBLIGATIONS TO PROVIDE MAINTENANCE, SUPPORT,
 #  UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #
-# M
-# adted from Lululla 20220716 for E2 Py3
+# ######################################################################M
+# adapted from Lululla 20220716 for E2 Py3
 # skinned from MMark
 
 from Plugins.Plugin import PluginDescriptor
-from . import Tetris
+from . import _, Tetris
 
 
 def main(session, **kwargs):
-	session.open(Tetris.Board)
+    session.open(Tetris.Board)
 
 
 def Plugins(**kwargs):
-	return [PluginDescriptor(name="Tetris", description=_("Tetris Game"), where=[PluginDescriptor.WHERE_PLUGINMENU],
-			icon="tetris.png", fnc=main)]
+    return [PluginDescriptor(name="Tetris", description=_("Tetris Game"), where=[PluginDescriptor.WHERE_PLUGINMENU],
+            icon="tetris.png", fnc=main)]
